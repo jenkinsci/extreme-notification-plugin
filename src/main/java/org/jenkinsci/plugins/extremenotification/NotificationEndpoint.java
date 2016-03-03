@@ -45,7 +45,7 @@ public abstract class NotificationEndpoint extends AbstractDescribableImpl<Notif
 		final Map<String, Object> args = Maps.newHashMap(event.getArgs());
 		args.putAll(extraArgs);
 		final GroovyShell shell = new GroovyShell(new Binding(args));
-		return ((GStringImpl) shell.evaluate('"' + value + '"')).toString();
+		return shell.evaluate('"' + value + '"').toString();
 	}
 	
 	public static abstract class DescriptorImpl extends Descriptor<NotificationEndpoint> {
